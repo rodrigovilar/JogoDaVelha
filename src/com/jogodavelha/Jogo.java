@@ -6,4 +6,11 @@ public class Jogo {
 		return false;
 	}
 
+	public void setMarcaPrimeiroJogadorX(boolean marcaPrimeiroJogadorX) {
+	}
+
+	public boolean isMarcaPrimeiroJogadorX() {
+		return true;
+	}
+
 }
