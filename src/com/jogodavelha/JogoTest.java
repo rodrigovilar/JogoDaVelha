@@ -39,4 +39,10 @@ public class JogoTest {
 		assertTrue(jogo.isMarcaXNaPosicao(1, 0));
 	}
 
+	@Test(expected=ExcecaoJogoDaVelha.class)
+	public void desenharEmCelulaOcupada() {
+		jogo.setMarcaPrimeiroJogadorX(true);
+		jogo.desenharMarca(1, 0); 
+		jogo.desenharMarca(1, 0); 
+	}
 }
