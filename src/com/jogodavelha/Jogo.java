@@ -37,8 +37,8 @@ public class Jogo {
 		throw new ExcecaoJogoDaVelha();
 	}
 
-	public boolean isMarcaXNaPosicao(int linha, int coluna) {
-		return true;
+	public Boolean isMarcaXNaPosicao(int linha, int coluna) {
+		return tabuleiro[linha][coluna];
 	}
 
 }

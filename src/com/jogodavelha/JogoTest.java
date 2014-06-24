@@ -57,4 +57,11 @@ public class JogoTest {
 		jogo.setMarcaPrimeiroJogadorX(false);
 		jogo.desenharMarca(-1, 0); 				
 	}
+	
+	@Test
+	public void lerDeUmaCelulaDesocupada() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		assertNull(jogo.isMarcaXNaPosicao(0, 0));	
+	}
+
 }
