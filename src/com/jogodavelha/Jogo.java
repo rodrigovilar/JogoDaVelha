@@ -18,11 +18,19 @@ public class Jogo {
 	}
 
 	public void desenharMarca(int linha, int coluna) {
+		if (coluna < 0 || coluna > 2) {
+			lancarExcecao();
+		}
+
 		if (tabuleiro[linha][coluna] != null) {
-			throw new ExcecaoJogoDaVelha();
-		} 
-		
+			lancarExcecao();
+		}
+
 		tabuleiro[linha][coluna] = marcaPrimeiroJogadorX;
+	}
+
+	private void lancarExcecao() {
+		throw new ExcecaoJogoDaVelha();
 	}
 
 	public boolean isMarcaXNaPosicao(int linha, int coluna) {

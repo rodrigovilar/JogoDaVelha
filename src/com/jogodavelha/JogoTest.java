@@ -45,4 +45,11 @@ public class JogoTest {
 		jogo.desenharMarca(1, 0); 
 		jogo.desenharMarca(1, 0); 
 	}
+	
+	@Test(expected=ExcecaoJogoDaVelha.class)
+	public void desenharEmColunaErrada() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(1, 4); 				
+	}
+
 }
