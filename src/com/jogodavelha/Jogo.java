@@ -22,6 +22,10 @@ public class Jogo {
 			lancarExcecao();
 		}
 
+		if (linha < 0 || linha > 2) {
+			lancarExcecao();
+		}
+		
 		if (tabuleiro[linha][coluna] != null) {
 			lancarExcecao();
 		}

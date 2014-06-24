@@ -52,4 +52,9 @@ public class JogoTest {
 		jogo.desenharMarca(1, 4); 				
 	}
 
+	@Test(expected=ExcecaoJogoDaVelha.class)
+	public void desenharEmLinhaErrada() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(-1, 0); 				
+	}
 }
