@@ -24,44 +24,56 @@ public class JogoTest {
 		jogo.setMarcaPrimeiroJogadorX(true);
 		assertTrue(jogo.isMarcaPrimeiroJogadorX());
 	}
-	
+
 	@Test
 	public void definirPrimeiroJogadorDeNovo() {
-		jogo.setMarcaPrimeiroJogadorX(true); //X
-		jogo.setMarcaPrimeiroJogadorX(false); //O
-		assertFalse(jogo.isMarcaPrimeiroJogadorX()); //O
+		jogo.setMarcaPrimeiroJogadorX(true); // X
+		jogo.setMarcaPrimeiroJogadorX(false); // O
+		assertFalse(jogo.isMarcaPrimeiroJogadorX()); // O
 	}
 
 	@Test
 	public void desenharPrimeiraMarca() {
-		jogo.setMarcaPrimeiroJogadorX(true);  //X
-		jogo.desenharMarca(1, 0); //X
+		jogo.setMarcaPrimeiroJogadorX(true); // X
+		jogo.desenharMarca(1, 0); // X
 		assertTrue(jogo.isMarcaXNaPosicao(1, 0));
 	}
 
-	@Test(expected=ExcecaoJogoDaVelha.class)
+	@Test(expected = ExcecaoJogoDaVelha.class)
 	public void desenharEmCelulaOcupada() {
 		jogo.setMarcaPrimeiroJogadorX(true);
-		jogo.desenharMarca(1, 0); 
-		jogo.desenharMarca(1, 0); 
-	}
-	
-	@Test(expected=ExcecaoJogoDaVelha.class)
-	public void desenharEmColunaErrada() {
-		jogo.setMarcaPrimeiroJogadorX(false);
-		jogo.desenharMarca(1, 4); 				
+		jogo.desenharMarca(1, 0);
+		jogo.desenharMarca(1, 0);
 	}
 
-	@Test(expected=ExcecaoJogoDaVelha.class)
+	@Test(expected = ExcecaoJogoDaVelha.class)
+	public void desenharEmColunaErrada() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(1, 4);
+	}
+
+	@Test(expected = ExcecaoJogoDaVelha.class)
 	public void desenharEmLinhaErrada() {
 		jogo.setMarcaPrimeiroJogadorX(false);
-		jogo.desenharMarca(-1, 0); 				
+		jogo.desenharMarca(-1, 0);
 	}
-	
+
 	@Test
 	public void lerDeUmaCelulaDesocupada() {
 		jogo.setMarcaPrimeiroJogadorX(false);
-		assertNull(jogo.isMarcaXNaPosicao(0, 0));	
+		assertNull(jogo.isMarcaXNaPosicao(0, 0));
+	}
+
+	@Test(expected = ExcecaoJogoDaVelha.class)
+	public void lerMarcaDeUmaColunaErrada() {
+		jogo.setMarcaPrimeiroJogadorX(true);
+		jogo.isMarcaXNaPosicao(1, 3);
+	}
+
+	@Test(expected = ExcecaoJogoDaVelha.class)
+	public void lerMarcaDeUmaLinhaErrada() {
+		jogo.setMarcaPrimeiroJogadorX(true);
+		jogo.isMarcaXNaPosicao(-1, 1);
 	}
 
 }
