@@ -87,4 +87,13 @@ public class JogoTest {
 	public void desenharMarcaAntesDeDefinirPrimeiroJogador() {
 		jogo.desenharMarca(1, 0);
 	}
+	
+	@Test
+	public void desenharSegundaMarca() {
+		jogo.setMarcaPrimeiroJogadorX(true); // X
+		jogo.desenharMarca(1, 0); // X
+		jogo.desenharMarca(1, 1); // O
+		assertFalse(jogo.isMarcaXNaPosicao(1, 1));
+	}
+
 }

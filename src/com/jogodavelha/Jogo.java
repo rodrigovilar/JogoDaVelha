@@ -2,7 +2,7 @@ package com.jogodavelha;
 
 public class Jogo {
 
-	private Boolean marcaPrimeiroJogadorX;
+	private Boolean proximaJogadaX;
 	private Boolean[][] tabuleiro = new Boolean[3][3];
 	private boolean iniciou;
 
@@ -15,11 +15,11 @@ public class Jogo {
 			lancarExcecao();
 		}
 		
-		this.marcaPrimeiroJogadorX = marcaPrimeiroJogadorX;
+		this.proximaJogadaX = marcaPrimeiroJogadorX;
 	}
 
 	public boolean isMarcaPrimeiroJogadorX() {
-		return marcaPrimeiroJogadorX;
+		return proximaJogadaX;
 	}
 
 	public void desenharMarca(int linha, int coluna) {
@@ -29,11 +29,12 @@ public class Jogo {
 			lancarExcecao();
 		}
 
-		if (marcaPrimeiroJogadorX == null) {
+		if (proximaJogadaX == null) {
 			lancarExcecao();
 		}
 		
-		tabuleiro[linha][coluna] = marcaPrimeiroJogadorX;
+		tabuleiro[linha][coluna] = proximaJogadaX;
+		proximaJogadaX = !proximaJogadaX;
 		iniciou = true;
 	}
 
