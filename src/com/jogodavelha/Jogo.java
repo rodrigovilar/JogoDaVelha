@@ -7,11 +7,26 @@ public class Jogo {
 	private boolean iniciou;
 
 	public boolean acabou() {
-		
+		return ganhouColuna() || ganhouLinha();
+	}
+
+	private boolean ganhouLinha() {
 		for (int i = 0; i < 3; i++) {
-			if ( (tabuleiro[0][i] == tabuleiro[1][i])
-					&& (tabuleiro[1][i] == tabuleiro[2][i]) 
-					&& (tabuleiro[1][i] != null) ) {
+			if ((tabuleiro[i][0] == tabuleiro[i][1])
+					&& (tabuleiro[i][1] == tabuleiro[i][2])
+					&& (tabuleiro[i][0] != null)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private boolean ganhouColuna() {
+		for (int i = 0; i < 3; i++) {
+			if ((tabuleiro[0][i] == tabuleiro[1][i])
+					&& (tabuleiro[1][i] == tabuleiro[2][i])
+					&& (tabuleiro[1][i] != null)) {
 				return true;
 			}
 		}
