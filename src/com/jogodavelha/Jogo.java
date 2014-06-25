@@ -7,6 +7,15 @@ public class Jogo {
 	private boolean iniciou;
 
 	public boolean acabou() {
+		
+		for (int i = 0; i < 3; i++) {
+			if ( (tabuleiro[0][i] == tabuleiro[1][i])
+					&& (tabuleiro[1][i] == tabuleiro[2][i]) 
+					&& (tabuleiro[1][i] != null) ) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 
@@ -14,7 +23,7 @@ public class Jogo {
 		if (iniciou) {
 			lancarExcecao();
 		}
-		
+
 		this.proximaJogadaX = marcaPrimeiroJogadorX;
 	}
 
@@ -24,7 +33,7 @@ public class Jogo {
 
 	public void desenharMarca(int linha, int coluna) {
 		verificarLimites(linha, coluna);
-		
+
 		if (tabuleiro[linha][coluna] != null) {
 			lancarExcecao();
 		}
@@ -32,7 +41,7 @@ public class Jogo {
 		if (proximaJogadaX == null) {
 			lancarExcecao();
 		}
-		
+
 		tabuleiro[linha][coluna] = proximaJogadaX;
 		proximaJogadaX = !proximaJogadaX;
 		iniciou = true;
@@ -54,7 +63,7 @@ public class Jogo {
 
 	public Boolean isMarcaXNaPosicao(int linha, int coluna) {
 		verificarLimites(linha, coluna);
-		
+
 		return tabuleiro[linha][coluna];
 	}
 

@@ -79,15 +79,15 @@ public class JogoTest {
 	@Test(expected = ExcecaoJogoDaVelha.class)
 	public void definirPrimeiroJogadorAposInicioDoJogo() {
 		jogo.setMarcaPrimeiroJogadorX(true);
-		jogo.desenharMarca(1, 0); //Início do jogo
+		jogo.desenharMarca(1, 0); // Início do jogo
 		jogo.setMarcaPrimeiroJogadorX(true);
 	}
-	
+
 	@Test(expected = ExcecaoJogoDaVelha.class)
 	public void desenharMarcaAntesDeDefinirPrimeiroJogador() {
 		jogo.desenharMarca(1, 0);
 	}
-	
+
 	@Test
 	public void desenharSegundaMarca() {
 		jogo.setMarcaPrimeiroJogadorX(true); // X
@@ -96,4 +96,14 @@ public class JogoTest {
 		assertFalse(jogo.isMarcaXNaPosicao(1, 1));
 	}
 
+	@Test
+	public void jogoGanhoAtravesDeColuna() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(0, 0);
+		jogo.desenharMarca(1, 2);
+		jogo.desenharMarca(1, 0);
+		jogo.desenharMarca(2, 2);
+		jogo.desenharMarca(2, 0);
+		assertTrue("Esperava que o jogo tivesse acabado", jogo.acabou());
+	}
 }
