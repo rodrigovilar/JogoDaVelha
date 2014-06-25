@@ -4,12 +4,17 @@ public class Jogo {
 
 	private boolean marcaPrimeiroJogadorX;
 	private Boolean[][] tabuleiro = new Boolean[3][3];
+	private boolean iniciou;
 
 	public boolean acabou() {
 		return false;
 	}
 
 	public void setMarcaPrimeiroJogadorX(boolean marcaPrimeiroJogadorX) {
+		if (iniciou) {
+			lancarExcecao();
+		}
+		
 		this.marcaPrimeiroJogadorX = marcaPrimeiroJogadorX;
 	}
 
@@ -25,6 +30,7 @@ public class Jogo {
 		}
 
 		tabuleiro[linha][coluna] = marcaPrimeiroJogadorX;
+		iniciou = true;
 	}
 
 	private void verificarLimites(int linha, int coluna) {

@@ -76,4 +76,10 @@ public class JogoTest {
 		jogo.isMarcaXNaPosicao(-1, 1);
 	}
 
+	@Test(expected = ExcecaoJogoDaVelha.class)
+	public void definirPrimeiroJogadorAposInicioDoJogo() {
+		jogo.setMarcaPrimeiroJogadorX(true);
+		jogo.desenharMarca(1, 0); //Início do jogo
+		jogo.setMarcaPrimeiroJogadorX(true);
+	}
 }
