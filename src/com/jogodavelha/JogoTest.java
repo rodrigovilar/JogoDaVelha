@@ -82,4 +82,9 @@ public class JogoTest {
 		jogo.desenharMarca(1, 0); //Início do jogo
 		jogo.setMarcaPrimeiroJogadorX(true);
 	}
+	
+	@Test(expected = ExcecaoJogoDaVelha.class)
+	public void desenharMarcaAntesDeDefinirPrimeiroJogador() {
+		jogo.desenharMarca(1, 0);
+	}
 }
