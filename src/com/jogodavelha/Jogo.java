@@ -71,6 +71,10 @@ public class Jogo {
 		if (proximaJogadaX == null) {
 			lancarExcecao();
 		}
+		
+		if (acabou()) {
+			lancarExcecao();
+		}
 
 		tabuleiro[linha][coluna] = proximaJogadaX;
 		proximaJogadaX = !proximaJogadaX;
