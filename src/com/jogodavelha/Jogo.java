@@ -7,7 +7,7 @@ public class Jogo {
 	private boolean iniciou;
 
 	public boolean acabou() {
-		return ganhouColuna() || ganhouLinha();
+		return ganhouColuna() || ganhouLinha() || ganhouDiagonal();
 	}
 
 	private boolean ganhouLinha() {
@@ -31,6 +31,21 @@ public class Jogo {
 			}
 		}
 
+		return false;
+	}
+
+	private boolean ganhouDiagonal() {
+		if ((tabuleiro[0][0] == tabuleiro[1][1])
+				&& (tabuleiro[1][1] == tabuleiro[2][2])
+				&& (tabuleiro[1][1] != null)) {
+			return true;
+		}
+
+		if ((tabuleiro[0][2] == tabuleiro[1][1])
+				&& (tabuleiro[1][1] == tabuleiro[2][0])
+				&& (tabuleiro[1][1] != null)) {
+			return true;
+		}
 		return false;
 	}
 
